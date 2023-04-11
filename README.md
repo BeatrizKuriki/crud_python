@@ -1,2 +1,2 @@
 # crud_python
-crud realizado com flash api na alura.
+crud realizado com flask api na alura.
