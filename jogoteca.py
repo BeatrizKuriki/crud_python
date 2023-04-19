@@ -11,6 +11,18 @@ jogo2 = Jogo('God of War', 'Hack n Slash', 'PS2')
 jogo3 = Jogo('Mortal Kombat', 'Luta', 'PS2')
 lista = [jogo1, jogo2, jogo3]
 
+class Usuario:
+    def __init__(self, nome, nickname, senha):
+        self.nome = nome
+        self.nickname = nickname
+        self.senha = senha
+
+usuario1 = Usuario("Bruno Divino", "BD", "alohomora")
+usuario2 = Usuario("Camila Ferreira", "Mila", "paozinho")
+usuario3 = Usuario("Guilherme Louro", "Cake", "Python_eh_vida")
+
+
+
 app = Flask(__name__)
 app.secret_key = 'alura'
 
@@ -54,6 +66,10 @@ def logout():
     session['usuario_logado'] = None
     flash('Logout efetuado com sucesso!')
     return redirect(url_for('index'))
+
+@app.route('/autenticar', methods=['POST', ])
+def autenticar():
+    if request.form['usuario'] in usuarios:
 
 app.run(debug=True)
 
